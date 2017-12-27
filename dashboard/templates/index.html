@@ -1,0 +1,20 @@
+{%extends 'list_layout.html'%}
+
+{% block content %}
+<table  class = "collection">
+	<tr>
+	<th>task name</th>
+	<th>task type</th>
+	<th>task status</th>
+	<th>task start time</th>
+	</tr>
+	{% for task in tasklist %}
+		<tr>
+		<td>{{task.taskname}}</td>
+		<td>{{task.tasktype}}</td>
+		<td>{{task.taskstatus}}</td>
+		<td>{{task.taskstarttime}}</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}
