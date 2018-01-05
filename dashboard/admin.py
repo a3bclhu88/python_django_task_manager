@@ -7,6 +7,7 @@ from dashboard.models import taskstatus
 from dashboard.models import taskcurrentstage
 from dashboard.models import returncode
 from dashboard.models import executable
+from dashboard.models import statusbehavior
 
 
 # Register your models here.
@@ -20,10 +21,10 @@ class taskCreationForm (ModelForm):
     #tasktype = taskTypedropdown(TaskType.objects.all())
     class Meta:
         model = Task
-        exclude = ['taskendtime', 'taskcurrentstage','taskstatus']
+        exclude = ['taskendtime','taskstatus']
     
 class customedTask (admin.ModelAdmin):
-    exclude = ['taskendtime', 'taskcurrentstage','taskstatus']
+    exclude = ['taskendtime','taskstatus']
     form = taskCreationForm
     class Meta:
         model = Task
@@ -34,3 +35,4 @@ admin.site.register(TaskType)
 admin.site.register(taskcurrentstage)
 admin.site.register(returncode)
 admin.site.register(executable)
+admin.site.register(statusbehavior)
