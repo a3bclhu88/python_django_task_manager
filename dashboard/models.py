@@ -66,7 +66,11 @@ class Task(models.Model):
 
 class TaskAction(models.Model):
     # task action item
-    Taskid = models.ForeignKey(Task,on_delete=models.CASCADE, null=True)
+    Taskid = models.ForeignKey(Task,on_delete=models.CASCADE, null=True, related_name='actions')
     actionname = models.CharField(max_length = 256)
     actiontime = models.DateTimeField(default = datetime.now,blank = True)
     actiontype = models.CharField(max_length = 32)
+    
+    @property
+    def tid(self):
+        return self.Taskid
